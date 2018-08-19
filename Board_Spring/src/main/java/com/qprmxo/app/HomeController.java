@@ -20,6 +20,13 @@ public class HomeController {
 	
 	@Autowired
 	private boardService b_service;
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(Model model, String id, String pwd) {
+		
+		
+		return "result";
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -47,6 +54,15 @@ public class HomeController {
 		return "board";
 	}
 	
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detail(Model model, int num) {
+		BoardVo vo = b_service.getInfo(num);
+		
+		model.addAttribute("vo", vo);
+		
+		return "detail";
+	}
+	
 	@RequestMapping(value="/insert",method = RequestMethod.GET)
 	public String insert() {
 		
@@ -57,9 +73,9 @@ public class HomeController {
 	public String insertOk(String title, String content, Model model) {
 		int n = b_service.insert(new BoardVo(title, content));
 		if(n>0) {
-			model.addAttribute("result", "글쓰기 성공!");
+			model.addAttribute("result", "Write success!");
 		}else {
-			model.addAttribute("result", "글쓰기 실패!");
+			model.addAttribute("result", "Write fail!");
 		}
 		return "result";
 	}
@@ -73,7 +89,7 @@ public class HomeController {
 			b_service.delete(Integer.parseInt(num1[i]));
 			cnt++;
 		}
-		model.addAttribute("result",cnt-1 + "개의 글 삭제 성공!");
+		model.addAttribute("result",cnt-1 + " contents delete success!");
 		
 		return "result";
 	}
@@ -92,7 +108,7 @@ public class HomeController {
 		
 		b_service.update(new BoardVo(Integer.parseInt(num), title, content));
 		
-		model.addAttribute("result", "글 수정 성공!");
+		model.addAttribute("result", "Update success");
 		
 		return "result";
 	}

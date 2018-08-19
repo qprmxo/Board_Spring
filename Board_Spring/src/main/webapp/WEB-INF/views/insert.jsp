@@ -6,20 +6,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function check(){
+		var title = document.getElementById("title");
+		var content = document.getElementById("content");
+		
+		if(title == null || title == ""){
+			alert("You need to write Title!");
+			return false;
+		}
+		if(content == null || content == ""){
+			alert("You need to write Content!");
+			return false;
+		}
+		
+		document.getElementById("frm").submit();
+	}
+	
+	function back(){
+		history.back();
+	}
+</script>
 </head>
 <body>
 
-<form action="insert" method="post">
+<h1>Write now</h1>
+
+<form action="insert" method="post" id="frm">
 	<table>
 		<tr>
-			<th>타이틀</th><td><input type="text" name="title"></td>
+			<th>Title</th><td><input type="text" name="title" id="title"></td>
 		</tr>
 		<tr>
-			<th>내용</th><td><input type="text" name="content"></td>
+			<th>Content</th><td><input type="text" name="content" id="content"></td>
 		</tr>
 	</table>
-	<button type="submit">확인</button>
-	<button type="reset">다시입력</button>
+	<button type="button" onclick="check()">Confirm</button>
+	<button type="reset">Reset</button>
+	<button type="button" onclick="back()">Back</button>
 </form>
 
 </body>

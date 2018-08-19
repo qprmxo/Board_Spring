@@ -8,12 +8,14 @@
 	<typeAliases>
 		<!-- alias -->
 		<typeAlias type="com.qprmxo.app.vo.BoardVo" alias="board" />
+		<typeAlias type="com.qprmxo.app.vo.MemberVo" alias="member" />
 	</typeAliases>
 
 
 	<mappers>
 		<!-- Mapper -->
 		<mapper resource="sqlmap/BoardMapper.xml" />
+		<mapper resource="sqlmap/MemberMapper.xml" />
 	</mappers>
 
 </configuration>

@@ -12,17 +12,17 @@
 <form action="update" method="post">
 	<table>
 		<tr>
-			<th>글번호</th><td><input type="text" readonly="readonly" name="num" value="${vo.num }"></td>
+			<th>Num</th><td><input type="text" readonly="readonly" name="num" value="${vo.num }"></td>
 		</tr>
 		<tr>
-			<th>제목</th><td><input type="text" name="title" value="${vo.title }"></td>
+			<th>Title</th><td><input type="text" name="title" value="${vo.title }"></td>
 		</tr>
 		<tr>
-			<th>내용</th><td><input type="text" name="content" value="${vo.content }"></td>
+			<th>Content</th><td><input type="text" name="content" value="${vo.content }"></td>
 		</tr>
 	</table>
-	<button type="submit">확인</button>
-	<button type="reset">다시입력</button>
+	<button type="submit">Confirm</button>
+	<button type="reset">Reset</button>
 </form>
 
 </body>

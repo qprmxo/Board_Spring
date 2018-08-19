@@ -10,6 +10,28 @@
 	Hello world!  
 </h1>
 
-<a href="boardList">게시판 목록</a>
+<c:choose>
+	<c:when test="${sessionScope.id == null }">
+		<form action="login" method="post">
+			<table>
+				<tr>
+					<th>ID</th>
+					<td><input type="text" name="id"></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="text" name="pwd"></td>
+				</tr>
+			</table>
+			<button type="submit">Login</button>
+			<button type="reset">Reset</button>
+		</form>
+	</c:when>
+	<c:otherwise>
+		<a href="boardList">Board List</a>
+		<a href="">Logout</a>
+	</c:otherwise>
+</c:choose>
+	
 </body>
 </html>
